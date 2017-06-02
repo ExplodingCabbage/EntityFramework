@@ -39,7 +39,7 @@ namespace Microsoft.EntityFrameworkCore.Internal
             }
         }
 
-        private static string SchemaConfiguredWarning(EventDefinitionBase definition, EventDataBase payload)
+        private static string SchemaConfiguredWarning(EventDefinitionBase definition, EventData payload)
         {
             var d = (EventDefinition<string, string>)definition;
             var p = (EntityTypeSchemaEventData)payload;
@@ -71,7 +71,7 @@ namespace Microsoft.EntityFrameworkCore.Internal
             }
         }
 
-        private static string SequenceConfiguredWarning(EventDefinitionBase definition, EventDataBase payload)
+        private static string SequenceConfiguredWarning(EventDefinitionBase definition, EventData payload)
         {
             var d = (EventDefinition<string>)definition;
             var p = (SequenceEventData)payload;

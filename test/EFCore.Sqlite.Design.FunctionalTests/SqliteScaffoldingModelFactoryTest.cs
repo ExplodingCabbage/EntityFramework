@@ -48,12 +48,12 @@ namespace Microsoft.EntityFrameworkCore
                 .FindEntityType("ColumnTypes");
 
             Assert.NotNull(entityType);
-            Assert.Equal("Column Types", entityType.Sqlite().TableName);
+            Assert.Equal("Column Types", entityType.Relational().TableName);
 
-            Assert.Equal("text", entityType.FindProperty("Col1").Sqlite().ColumnType);
+            Assert.Equal("text", entityType.FindProperty("Col1").Relational().ColumnType);
             Assert.Equal(typeof(string), entityType.FindProperty("Col1").ClrType);
 
-            Assert.Equal("unsigned big int", entityType.FindProperty("Col2").Sqlite().ColumnType);
+            Assert.Equal("unsigned big int", entityType.FindProperty("Col2").Relational().ColumnType);
             Assert.Equal(typeof(long?), entityType.FindProperty("Col2").ClrType);
         }
 
@@ -73,11 +73,11 @@ namespace Microsoft.EntityFrameworkCore
 
             Assert.NotNull(entityType);
 
-            Assert.Equal("\"dev\"", entityType.FindProperty("Occupation").Sqlite().DefaultValueSql);
-            Assert.Equal("2", entityType.FindProperty("Pay").Sqlite().DefaultValueSql);
-            Assert.Equal("current_timestamp", entityType.FindProperty("Hiredate").Sqlite().DefaultValueSql);
-            Assert.Equal("100 + 19.4", entityType.FindProperty("Iq").Sqlite().DefaultValueSql);
-            Assert.Null(entityType.FindProperty("Name").Sqlite().DefaultValueSql);
+            Assert.Equal("\"dev\"", entityType.FindProperty("Occupation").Relational().DefaultValueSql);
+            Assert.Equal("2", entityType.FindProperty("Pay").Relational().DefaultValueSql);
+            Assert.Equal("current_timestamp", entityType.FindProperty("Hiredate").Relational().DefaultValueSql);
+            Assert.Equal("100 + 19.4", entityType.FindProperty("Iq").Relational().DefaultValueSql);
+            Assert.Null(entityType.FindProperty("Name").Relational().DefaultValueSql);
         }
 
         [Fact]
@@ -115,7 +115,7 @@ namespace Microsoft.EntityFrameworkCore
             Assert.False(idx.IsUnique);
             Assert.Equal(
                 new[] { "Id", "A" },
-                idx.Properties.Select(c => c.Sqlite().ColumnName).ToArray());
+                idx.Properties.Select(c => c.Relational().ColumnName).ToArray());
 
             Assert.Single(entityType.GetKeys());
         }

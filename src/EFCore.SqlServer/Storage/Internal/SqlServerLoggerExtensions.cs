@@ -41,7 +41,7 @@ namespace Microsoft.EntityFrameworkCore.Internal
             }
         }
 
-        private static string DecimalTypeDefaultWarning(EventDefinitionBase definition, EventDataBase payload)
+        private static string DecimalTypeDefaultWarning(EventDefinitionBase definition, EventData payload)
         {
             var d = (EventDefinition<string, string>)definition;
             var p = (PropertyEventData)payload;
@@ -77,7 +77,7 @@ namespace Microsoft.EntityFrameworkCore.Internal
             }
         }
 
-        private static string ByteIdentityColumnWarning(EventDefinitionBase definition, EventDataBase payload)
+        private static string ByteIdentityColumnWarning(EventDefinitionBase definition, EventData payload)
         {
             var d = (EventDefinition<string, string>)definition;
             var p = (PropertyEventData)payload;
